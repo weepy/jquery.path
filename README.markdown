@@ -86,6 +86,7 @@ Links
 ----
 
 * [Demo](http://weepy.github.com/jquery.path)
-* [Source](http://github.com/weepy/jquery.path)
+* [Javascript File](http://github.com/weepy/jquery.path/raw/master/jquery.path.js)
+* [Github Project](http://github.com/weepy/jquery.path)
 * [Issue Tracker](http://github.com/weepy/jquery.path/issues)
 
