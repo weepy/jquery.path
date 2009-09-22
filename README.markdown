@@ -68,7 +68,6 @@ Other Paths
 It is trivial to create other paths, or even animate other parameters. E.g:
 
 <pre>
-  
 var SineWave = function() {
   this.css = function(p) {
     var s = Math.sin(p*20)
