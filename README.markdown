@@ -85,7 +85,7 @@ $("my_elem").animate({path : new SineWave})
 Links
 ----
 
-* Demo at http://weepy.github.com/jquery.path
-* Source at http://github.com/weepy/jquery.path
-* Issue Tracker at http://github.com/weepy/jquery.path/issues
+* [Demo](http://weepy.github.com/jquery.path)
+* [Source](http://github.com/weepy/jquery.path)
+* [Issue Tracker](http://github.com/weepy/jquery.path/issues)
 
