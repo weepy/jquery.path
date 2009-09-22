@@ -67,7 +67,7 @@ Other Paths
 
 It is trivial to create other paths, or even animate other parameters. E.g:
 
-<code>
+<pre>
   
 var SineWave = function() {
   this.css = function(p) {
@@ -80,7 +80,7 @@ var SineWave = function() {
 };
   
 $("my_elem").animate({path : new SineWave})
-</code>
+</pre>
 
 Links
 ----
