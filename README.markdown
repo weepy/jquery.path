@@ -90,3 +90,14 @@ Links
 * [Github Project](http://github.com/weepy/jquery.path)
 * [Issue Tracker](http://github.com/weepy/jquery.path/issues)
 
+Compatibility
+----
+
+Tested in
+
+* Firefox 3.5
+* Safari 4
+* IE 6, 7, 8
+
+
+
