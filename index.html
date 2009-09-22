@@ -7,6 +7,7 @@
 <style>
 #arc { position: relative; width: 600px; height: 300px; }
 #bezier { position: relative; width: 600px; height: 300px; }
+#sine { position: relative; width: 600px; height: 300px; }
 
 .pixel { position: absolute; width: 150px; height: 150px; background: red; -moz-border-radius: 75px; -webkit-border-radius: 75px; opacity: 0.5; filter: alpha(opacity=50); top: -15px; left: 185px;}
 .dot {width: 1px; position: absolute; height: 1px; background: #aaa; }
@@ -17,10 +18,21 @@ h1 { margin: 30px 0;}
 
 <script>
 
+var SineWave = function() {
+  this.css = function(p) {
+    var s = Math.sin(p*20)
+    var x = 500 - p * 300 
+    var y = s * 50 + 150
+    var o = ((s+2)/4+0.1)
+    return {top: y + "px", left: x + "px", opacity: o}
+  } 
+};
+
+
 $().ready(function() {
   
 
-  var Paths = {"arc":[], "bezier":[]}
+  var Paths = {"arc":[], "bezier":[], "sine": []}
   
   var path_fns = {
     arc: function(i) {
@@ -38,24 +50,29 @@ $().ready(function() {
         start: { x:185, y:185, angle: i*20 * x},	
       	end: {x:540,y:110, angle: i*10, length: i / 4.0}
       })
+    },
+    sine : function() {
+      return new SineWave
     }
   }
   
   for(var type in Paths) {
 
     for(var i=0; i<10; i++ ) {
-
+      if(i != 9 && type == "sine")
+        continue
+        
       var path = path_fns[type](i)
       Paths[type].push(path)
 
       var css = {
         "backgroundColor": (i%2) ? "red" : "yellow", 
-        width: 20*i, 
-        height: 20*i, 
-        "-moz-border-radius": 10*i, 
-        "-webkit-border-radius": 10*i, 
-        marginLeft: -10*i, // offset the div, so center is at origin
-        marginTop: -10*i 
+        width: 20*(i+1), 
+        height: 20*(i+1), 
+        "-moz-border-radius": 10*(i+1), 
+        "-webkit-border-radius": 10*(i+1), 
+        marginLeft: -10*(i+1), // offset the div, so center is at origin
+        marginTop: -10*(i+1) 
       }
 
       var $$ = $("<span class=pixel></span>").css(css)
@@ -114,7 +131,14 @@ $().ready(function() {
       <p><a class=start  >Start</a> </p>
       <p><a class=plot >Plot</a>  </p>
     </div>
+
+    <h2>custom path: sine wave</h2>
+    <div id=sine>
+      <p><a class=start  >Start</a> </p>
+      <p><a class=plot >Plot</a>  </p>
+    </div>
     
+        
      <h2>links</h2>
      <ul>
      <li><a href='http://github.com/weepy/jquery.path/raw/master/jquery.path.js'>Javascript file</a></li> 
@@ -124,3 +148,5 @@ $().ready(function() {
      </ul>
   </div>
 </body>
+
+
